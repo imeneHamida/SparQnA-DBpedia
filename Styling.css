@@ -1,0 +1,52 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Inika', sans-serif;
+}
+
+.row {
+    background-image: url('assets/Background.png');
+    background-size: cover;
+    background-position: center 65%;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.form-control {
+    margin-bottom: 2%;
+    border: 1px solid #5AA9E6;
+    border-radius: 10px;
+    appearance: none;
+    
+}
+
+img {
+    width: 23%;
+    margin-top: 5%;
+    margin-bottom: 2%;
+
+}
+
+.btn {
+    background-color: #FFE45E;
+    padding-inline: 5%;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgb(8, 8, 8, 0.40);
+    text-align: center;
+}
+
+#answer {
+    background-color: rgba(127, 200, 248, 0.53);
+    height: 20%;
+    margin-top: 4%;
+    margin-bottom: 2%;
+    padding: 5%;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    box-shadow: 0 2px 4px rgb(8, 8, 8, 0.50);
+    text-align: center;
+
+}
