@@ -31,8 +31,7 @@ function constructSPARQLQuery(questionId, variableName) {
                             (dbo:position|dbp:position) ?position ;
                             dbo:birthDate ?birth.
             
-            FILTER (?position = <http://dbpedia.org/resource/Forward_(association_football)>)
-            FILTER (?birth = "1987-06-24"^^xsd:date)
+            FILTER (?position = <http://dbpedia.org/resource/Forward_(association_football)> && ?birth = "1987-06-24"^^xsd:date)
             } 
             ORDER BY ?soccerplayer
             LIMIT 1
