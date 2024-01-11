@@ -1,3 +1,4 @@
+// the function that handles question submission
 function submitQuestion() {
     var selectedQuestion = document.getElementById("questionSelect").value;
     var variableName = getVariableName(selectedQuestion);
@@ -8,9 +9,9 @@ function submitQuestion() {
         .then(data => displayAnswer(data, variableName));
 }
 
+
+//  the function that constructs the sparql query
 function constructSPARQLQuery(questionId, variableName) {
-    // Define your SPARQL queries based on the selected questionId and variableName
-    // Example: What is the capital of France?
     if (questionId === "1") {
         return `
             SELECT ?${variableName}
@@ -78,29 +79,79 @@ function constructSPARQLQuery(questionId, variableName) {
             LIMIT 1
         `;
     }
-    
+    if (questionId === "6") {
+        return `
+            SELECT ?${variableName}
+            WHERE {
+                <http://dbpedia.org/resource/Canada> <http://dbpedia.org/property/${variableName}> ?${variableName}.
+            }
+        `;
     }
-    // Add more queries as needed for other questions
 
+    if (questionId === "7") {
+        return `
+            SELECT ?${variableName}
+            WHERE {
+                <http://dbpedia.org/resource/The_Hunger_Games> <http://dbpedia.org/property/${variableName}> ?${variableName}.
+            }
+        `;
+    }
+    if (questionId === "8") {
+        return `
+            SELECT *
+            WHERE {
+                <http://dbpedia.org/resource/Sudan> <http://dbpedia.org/property/${variableName}> ?${variableName}.
+            }
+        `;
+    }
+    if (questionId === "9") {
+        return `
+            SELECT *
+            WHERE {
+                <http://dbpedia.org/resource/Harry_Potter> <http://dbpedia.org/property/${variableName}> ?${variableName}.
+            }
+        `;
+    }
 
+    if (questionId === "10") {
+        return `
+        PREFIX dbo: <http://dbpedia.org/ontology/>
+
+        SELECT ?${variableName}
+        WHERE {
+            {
+                ?animal a dbo:Mammal.
+            }
+            UNION {
+                ?animal a dbo:Bird.
+            }
+        }
+        LIMIT 1
+    `;
+    }
+}
+
+// the function the displays the answer
 function displayAnswer(data, variableName) {
-    // Process the JSON response and display the answer
     var uri = data.results.bindings[0][variableName].value;
     var answer = uri.split('/').pop();
 
     document.getElementById("answer").innerHTML = "The Answer is:  " + answer;
 }
 
+// the function that gives values to the variable based on the question id
 function getVariableName(questionId) {
-    // Map questionId to the corresponding variable name
-    // You might want to make this mapping more sophisticated based on your specific needs
     const variableNames = {
         "1": "capital",
         "2": "soccerplayer",
         "3": "country",
         "4": "film",
         "5": "genre",
-        // Add more mappings as needed
+        "6": "capital",
+        "7": "author",
+        "8": "largestCity",
+        "9": "genre",
+        "10": "animal",
     };
     return variableNames[questionId] || "Unknown";
 }
