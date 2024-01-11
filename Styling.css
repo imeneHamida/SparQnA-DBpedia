@@ -1,16 +1,18 @@
 body, html {
     margin: 0;
     padding: 0;
+    max-width: 100vw;
     min-height: 100vh;
     font-family: 'Inika', sans-serif;
+    overflow-x: hidden;
 }
 
 .row {
     background-image: url('assets/Background.png');
     background-size: cover;
-    background-position: center 65%;
-    width: 100%;
-    height: 100%;
+    background-position: center;
+    width: 100vw;
+    min-height: 100vh;
     margin: 0;
     padding: 0;
 }
@@ -19,15 +21,13 @@ body, html {
     margin-bottom: 2%;
     border: 1px solid #5AA9E6;
     border-radius: 10px;
-    appearance: none;
-    
+    appearance: none;   
 }
 
 img {
     width: 23%;
     margin-top: 5%;
     margin-bottom: 2%;
-
 }
 
 .btn {
@@ -40,13 +40,12 @@ img {
 
 #answer {
     background-color: rgba(127, 200, 248, 0.53);
-    height: 20%;
-    margin-top: 4%;
-    margin-bottom: 2%;
-    padding: 5%;
+    min-height: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 20px;
     border-top-right-radius: 50px;
     border-bottom-left-radius: 50px;
     box-shadow: 0 2px 4px rgb(8, 8, 8, 0.50);
     text-align: center;
-
 }
